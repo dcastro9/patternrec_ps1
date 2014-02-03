@@ -312,8 +312,12 @@ for ds in list_of_datasets:
     five_val_me = 0
     five_val_be = 0
     for val in range(ni):
-        five_samples = [cur_dataset.getTrainingData(5, 0),
-                        cur_dataset.getTrainingData(5, 1)]
+        if ds == "alcoholism_mod.csv":
+            five_samples = [cur_dataset.getTrainingData(7, 0),
+                            cur_dataset.getTrainingData(7, 1)]
+        else:
+            five_samples = [cur_dataset.getTrainingData(5, 0),
+                            cur_dataset.getTrainingData(5, 1)]
         me5 = MaximumLikelihoodEstimation(cur_dataset.classes, 
                                           five_samples,
                                           cur_dataset.data)
